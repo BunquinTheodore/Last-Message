@@ -1,0 +1,138 @@
+.closing-section {
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  overflow: hidden;
+}
+
+.closing-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--color-lightest) 0%,
+    var(--color-white) 30%,
+    var(--color-white) 100%
+  );
+  z-index: 0;
+}
+
+.closing-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.closing-decorative-line {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-medium),
+    transparent
+  );
+  border-radius: 1px;
+}
+
+.closing-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 10vw, 4rem);
+  font-weight: 500;
+  font-style: italic;
+  color: var(--color-darkest);
+  letter-spacing: 0.02em;
+  margin: var(--spacing-sm) 0;
+  text-shadow: 0 2px 20px rgba(0, 131, 143, 0.1);
+}
+
+.closing-year {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  color: var(--color-medium);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+.closing-signature {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  color: var(--color-text-light);
+  font-style: italic;
+  line-height: 1.8;
+  margin-top: var(--spacing-lg);
+}
+
+.signature-name {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  color: var(--color-dark);
+  font-style: italic;
+  display: block;
+  margin-top: var(--spacing-xs);
+}
+
+.closing-heart {
+  font-size: 3rem;
+  margin-top: var(--spacing-lg);
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+/* Subtle sparkle effect */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.closing-content::before,
+.closing-content::after {
+  content: '✦';
+  position: absolute;
+  font-size: 1rem;
+  color: var(--color-medium);
+  opacity: 0.5;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+.closing-content::before {
+  top: -20px;
+  left: -30px;
+  animation-delay: 0s;
+}
+
+.closing-content::after {
+  bottom: -20px;
+  right: -30px;
+  animation-delay: 1.5s;
+}
+
+@media (min-width: 768px) {
+  .closing-section {
+    padding: var(--spacing-xxl);
+  }
+  
+  .closing-content::before {
+    top: -30px;
+    left: -60px;
+    font-size: 1.25rem;
+  }
+  
+  .closing-content::after {
+    bottom: -30px;
+    right: -60px;
+    font-size: 1.25rem;
+  }
+}

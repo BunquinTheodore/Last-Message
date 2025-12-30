@@ -1,0 +1,36 @@
+.photo-essay {
+  min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    var(--color-lightest) 0%,
+    var(--color-white) 50%,
+    var(--color-lightest) 100%
+  );
+}
+
+.essay-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Add subtle dividers between sections */
+.essay-section:not(:last-of-type)::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-medium),
+    transparent
+  );
+  margin: var(--spacing-lg) auto 0;
+  opacity: 0.5;
+}
+
+@media (min-width: 768px) {
+  .essay-section:not(:last-of-type)::after {
+    display: none;
+  }
+}
